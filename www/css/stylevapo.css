@@ -2,7 +2,7 @@ body{margin:0;max-width:100%;}
 #contentapp{width:100%;display:block;margin:0 auto;background-color:#fff;}
 #intro{width:90%; padding:8px 16px 15px 16px; font:normal 14px arial;color:#333;display:block;margin:0 auto;}
 #scelta{width:80%;display:block;margin:0 auto;text-align:center;}
-#pinserimento{background-color:#ffffbd;background-size:cover; width:100%;}
+#pinserimento{background-color:#ffffbd;background-size:100 100; width:100%;margin-top:0;margin-left:0;}
   #inserimento{width:98%;   
   display:-webkit-flex; 
   display: -ms-flexbox; 
@@ -16,7 +16,7 @@ body{margin:0;max-width:100%;}
 
   border:2px solid #ddd;
   box-shadow:5px 5px 5px #888888; 
-  margin:10px 2% 5px 2% ;
+  margin:20px 2% 5px 2% ;
  }   
  .insalone{width:60%;background-color:#fff;
 
