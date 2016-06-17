@@ -63,7 +63,7 @@ umi=0.45;
 }
 
 var ritirolastrax=((cespo*umi*srit)/1000)*distcont;
-var ritirolastra=Math.round(ritirolastrax*1000)/1000;
+var ritirolastra=Math.round(ritirolastrax*100)/100;
 var boxalert=document.getElementById('boxalert');
 boxalert.innerHTML="Il ritiro del pavimento per una distanza tra i giunti di contrazione pari a <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;text-align:center;'>"+ritirolastra+" cm </span>";
 var modelast=5700*Math.sqrt(rck);     
