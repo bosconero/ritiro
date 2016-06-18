@@ -65,9 +65,9 @@ umi=0.45;
 var ritirolastrax=((cespo*umi*srit)/1000)*distcont;
 var ritirolastra=Math.round(ritirolastrax*100)/100;
 var boxalert=document.getElementById('boxalert');
-boxalert.innerHTML="Il ritiro del pavimento per una distanza tra i giunti di contrazione pari a <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;text-align:center;'>"+ritirolastra+" cm </span>";
+boxalert.innerHTML="Il ritiro del pavimento per una distanza tra i giunti di contrazione pari a <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;text-align:center;'>"+ritirolastra+" mm </span>";
 var modelast=5700*Math.sqrt(rck);     
-var modelas=Math.round(modelast*100)/100;         // modulo elastico calcestruzzo
+var modelas=Math.round(modelast);         // modulo elastico calcestruzzo
 var rck2=Math.pow(rck,2)   ;
 var resistrazionex=0.27*Math.pow(rck2,1/3);  
 var resistrazione=Math.round(resistrazionex*100)/100;   //resistenza a trazione
