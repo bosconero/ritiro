@@ -45,26 +45,20 @@ body{margin:0;max-width:100%;}
 .boxtitle{max-width:98%;padding:5px 16px 15px 16px;display:block;margin:0 auto;height:10%;background-color:#000040;}
 .centralindex{max-width:98%;display:block;margin:auto auto;min-height:60%}
 .indeximage{min-height:60%; vertical-align:middle;}
-.indeximage img{display:block;margin:0 auto;position: absolute;
-bottom: 0;
+.indeximage img{display:block;margin:0 auto;position: relative;
+bottom: 10px;
 left: 0;
 margin: auto;
 right: 0;
-top: 0;}
-.buttonindex{width:100%;position:fixed;bottom:0px;display:block;margin-left:auto;margin-bottom:0;margin-right:auto; height:10%;vertical-align:middle;text-align:center;background-color:transparent;}
+top: 10px;}
+.buttonindex{width:100%;position:fixed;bottom:0px;display:block;margin-left:auto;margin-bottom:0;margin-right:auto; height:10%;vertical-align:middle;text-align:center;background-color:transparent;border:none;box-shadow:none;}
+button.entra{background-color:transparent;border:none;box-shadow:none;}
 .titleindex{font:bold 22px arial;color:#fff;background-color:#000044;text-align:center;}
-.indeximage{width:98%;display:block;margin:0 auto;}
-.imgindex{max-width:100%;display:block;margin:0 auto;}
+.indeximage{width:98%;display:block;margin:0 auto;position:relative;background-color:transparent;}
+.imgindex{max-width:100%;display:block;margin:0 auto;position:relative;}
 .contentindex{width:98%; display:block;margin:0 auto;}
-.cntindx{width:80%; font:normal 18px arial; color:#000044;display:block;margin:0 auto; text-align:center;vertical-align:middle;}
-.lgbutton{width:80%;height:40px;background:#000044;display:block;margin-top:1.5%;margin-left:auto;margin-right:auto;vertical-align:middle;
-background: -webkit-linear-gradient(#000044, #000099); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#000044, #000099); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#000044, #000099); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#000044, #000099); /* Standard syntax */
-    border:1px solid #000033;
-    box-shadow:5px 5px 5px #000066;
-    font:bold 22px arial;color:#fff; }
+.cntindx{width:80%; font:normal 18px arial; color:#000044;display:block;margin:10px auto; text-align:center;vertical-align:middle;}
+
 .introtext{width:95%;display:block;margin:0 auto; font:normal 14px arial; color:#333;padding:15px 16px 15px 16px;}
 #testotrazione{width:90%;display:block;margin:0 auto; font:normal 14px arial;color:#333;}
 select{width:75%; display:block; margin:10px auto;}    
