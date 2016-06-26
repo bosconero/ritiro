@@ -36,6 +36,16 @@ var umrel=document.getElementById('umidita').value;
 var spess=document.getElementById('spesspav').value;
 var cespo=document.getElementById('classesp').value;
 var tgetto=document.getElementById('tipogetto').value;
+if(document.getElementById('barriera').checked){
+var strato="si";
+}else{
+var strato="no";
+}
+if(document.getElementById('matprosi').checked){
+var matur="si";
+}else{
+var matur="no";
+}
 
 if (tgetto=="diretto" && cespo==0.6){
 srit=700;}
@@ -63,9 +73,24 @@ umi=0.45;
 }
 
 var ritirolastrax=((cespo*umi*srit)/1000)*distcont;
-var ritirolastra=Math.round(ritirolastrax*100)/100;
+var ritirolastray=Math.round(ritirolastrax*100)/100;
+if (strato=="si"){
+var ritirostrato=ritirolastray*10/100;
+}else{
+ritirostrato=0;}
+if(matur=="no"){
+var ritiromatur=ritirolastray*10/100;
+}else{
+ritiromatur=0;
+}
+ritirolastraz=ritirolastray+ritirostrato+ritiromatur;
+ritirolastra=Math.round(ritirolastraz*100)/100;
 var boxalert=document.getElementById('boxalert');
-boxalert.innerHTML="Il ritiro del pavimento per una distanza tra i giunti di contrazione pari a <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;text-align:center;'>"+ritirolastra+" mm </span>";
+boxalert.innerHTML="Il ritiro in fase plastica del calcestruzzo giovane per una distanza tra i giunti di contrazione pari a <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;text-align:center;'>"+ritirolastra+" mm </span>";
+var alertd=document.getElementById('alert2');
+if (ritirolastra>1.5){
+alertd.innerHTML="<span style='font:bold 20px arial;color:#990000;'>RICALCOLARE IL DIMENSIONAMENTO DEI GIUNTI PER RICONDURRE IL RITIRO ENTRO LIMITI ACCETTABILI</span>";
+}
 var modelast=5700*Math.sqrt(rck);     
 var modelas=Math.round(modelast);         // modulo elastico calcestruzzo
 var rck2=Math.pow(rck,2)   ;
