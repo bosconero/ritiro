@@ -100,8 +100,8 @@ var fattrit=(cespo*umi*srit)/1000000; //d4
 var sollmediatrazionex=(fattrit*modelas*(100*spess))/1500; 
 var sollmediatrazione=Math.round(sollmediatrazionex*100)/100;//sollecitazione media a trazione
 moduloelastico.innerHTML="Modulo elastico cls: <span style='font:bold 16px; color:#ff2200;'>"+modelas+" N/mm<sup>2</sup> </span>";
-resistenzaatrazione.innerHTML="Resistenza a trazione N/mm<sup>2</sup>: <span style='font:bold 16px; color:#ff2200;'>"+resistrazione+" N/mm<sup>2</sup></span>";
-resistenzamediaatrazione.innerHTML="Soll. media a trazione N/mm<sup>2</sup>: <span style='font:bold 16px; color:#ff2200;'>"+sollmediatrazione+" N/mm<sup>2</sup></span>";
+resistenzaatrazione.innerHTML="Resistenza a trazione : <span style='font:bold 16px; color:#ff2200;'>"+resistrazione+" N/mm<sup>2</sup></span>";
+resistenzamediaatrazione.innerHTML="Soll. media a trazione : <span style='font:bold 16px; color:#ff2200;'>"+sollmediatrazione+" N/mm<sup>2</sup></span>";
 
 
 }
