@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="it">
+<html>
   <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="generator" content="PSPad editor, www.pspad.com">
@@ -32,13 +32,14 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
   <button id="scendi" onclick="fineintro()" style="border:none;background-color:#fff;display:block;margin:0 auto;"><img src="img/btndwn.png" width="60" alt="scendi" /> </button>
   </div>
   <div id="pinserimento">
+    <div id="attenzione"></div>  
   <div id="inserimento">
-    <div id="attenzione"></div>  <br />
-     <div class="ins">
+  
+       <div class="ins">
        <div class="titoloins">
-       <label>Classe esposizione cls</label>
+       <label>Classe cls</label>
        </div>
-       <div class="ins"> 
+       <div class="inputins"> 
        <select id="classesp">
        <option value="XC1">XC1</option>
        <option value="XC2"> XC2 </option>
@@ -52,7 +53,7 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
   
        <div class="ins">
        <div class="titoloins">
-      <label for="rck">Resistenza CLS Rck N/mm<sup>2</sup> </label>
+      <label for="rck"> Rck N/mm<sup>2</sup> </label>
        </div>
        <div class="inputins"> 
         <input type=number name="rck" id="rck" autofocus>
@@ -61,7 +62,7 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-      <label for="digiucont">Distanza dei giunti in ml </label>
+      <label for="digiucont">Dist. giunti in ml </label>
        </div>
        <div class="inputins"> 
       <input type=number name="digiucont" id="digiucont" >
@@ -70,7 +71,7 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-       <label for="umidita">Umidita Relativa in %</label>
+       <label for="umidita">Umidita Rel.% </label>
        </div>
        <div class="inputins"> 
        <input type=number name="umidita" id="umidita">
@@ -81,14 +82,14 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-       <label for="spesspav">Spessore del pavimento in <b>cm</b> </label>
+       <label for="spesspav">Spessore pav <b>cm</b> </label>
        </div>
        <div class="inputins"> 
        <input type=number name="spesspav" id="spesspav"> 
        </div>
        </div>
        
-     
+      
        
        <div class="ins">
        <div class="titoloins">
@@ -101,9 +102,9 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
         </select> 
        </div>
        </div>
-          <div class="insalone">
+       <div class="insalone">
        <div class="titoloins">
-       <label>Sottofondo impermeabile </label>
+       <label>Sottofondo impermeabile o con telo di polietilene </label>
        </div>
         <table>
          <tr>
@@ -132,12 +133,14 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        <button class="bottonev" id="calcola" onclick="controllo()">Calcola</button>
        <button class="bottoner" type="reset" value="Reset">Reset </button>
        </div>
+       
+
   </div>   
  
 
                                                      <br /> 
    
- </div>                                                  
+ </div>                                                 
 <div id="risultati"> 
  <br />
 <div id="risultaritiro">
