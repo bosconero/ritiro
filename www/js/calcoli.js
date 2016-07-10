@@ -3,7 +3,33 @@ if(document.getElementById('rck').value==''){
 attenzione.innerHTML="<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire la Rck</span>" ;
 document.getElementById('rck').focus();
 } else{
-controllo1()}
+controllo5()}
+}
+function controllo5(){
+var cespo=document.getElementById('classesp').value;
+var rck=document.getElementById('rck').value;
+if(cespo=='XC1' && rck < 30){
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XC1<br /></span>";
+document.getElementById('rck').focus;
+}else if (cespo=='XC2' && rck < 30){
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XC2<br /></span>";
+document.getElementById('rck').focus;
+}else if (cespo=='XC3' && rck < 35) {
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 35, minima classe di resistenza ammessa per XC3<br /></span>";
+document.getElementById('rck').focus;
+}else if(cespo=='XC4' && rck < 40){
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 40, minima classe di resistenza ammessa per XC4<br /></span>";
+document.getElementById('rck').focus;
+}else if(cespo=='XF3' && rck < 30){
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XF3<br /></span>";
+document.getElementById('rck').focus;
+}else if (cespo=='XF4' && rck < 35){
+attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 35, minima classe di resistenza ammessa per XF4<br /></span>";
+document.getElementById('rck').focus;
+} 
+else {controllo1()
+
+}
 }
 function controllo1(){
 if(document.getElementById('digiucont').value==''){
@@ -47,18 +73,30 @@ var matur="si";
 var matur="no";
 }
 
-if (tgetto=="diretto" && cespo==0.6){
+if (tgetto=="diretto" && cespo=='XC1'){
+var srit=700;}
+if (tgetto=="diretto" && cespo=='XC2'){
 srit=700;}
-if (tgetto=="diretto" && cespo==0.55){
+if (tgetto=="diretto" && cespo=='XC3'){
 srit=650;}
-if (tgetto=="diretto" && cespo==0.5){
+if (tgetto=="diretto" && cespo=='XC4'){
 srit=600;}
-if (tgetto=="pompa" && cespo==0.6){
+if (tgetto=="diretto" && cespo=='XF3'){
+srit=600;}
+if (tgetto=="diretto" && cespo=='XF4'){
+srit=550;}
+if (tgetto=="pompa" && cespo=='XC1'){
 srit=800;}
-if (tgetto=="pompa" && cespo==0.55){
+if (tgetto=="pompa" && cespo=='XC2'){
+srit=800;}
+if (tgetto=="pompa" && cespo=='XC3'){
 srit=750;}
-if (tgetto=="pompa" && cespo==0.5){
+if (tgetto=="pompa" && cespo=='XC4'){
 srit=700;}
+if (tgetto=="pompa" && cespo=='XF3'){
+srit=700;}
+if (tgetto=="pompa" && cespo=='XF4'){
+srit=650;}
 
 if(umrel<40){
 umi=1.15;
@@ -71,8 +109,13 @@ umi=0.9-((umrel-60)*0.02);
 }else if(umrel>80){
 umi=0.45;
 }
-
-var ritirolastrax=((cespo*umi*srit)/1000)*distcont;
+if(cespo=='XC1'){ var ac=0.6; }
+if(cespo=='XC2'){ var ac=0.6; }
+if(cespo=='XC3'){ var ac=0.55; }
+if(cespo=='XC4'){ var ac=0.5; }
+if(cespo=='XF3'){ var ac=0.5; }
+if(cespo=='XF4'){ var ac=0.45; }
+var ritirolastrax=((ac*umi*srit)/1000)*distcont;
 var ritirolastray=Math.round(ritirolastrax*100)/100;
 if (strato=="si"){
 var ritirostrato=ritirolastray*10/100;
@@ -96,7 +139,7 @@ var modelas=Math.round(modelast);         // modulo elastico calcestruzzo
 var rck2=Math.pow(rck,2)   ;
 var resistrazionex=0.27*Math.pow(rck2,1/3);  
 var resistrazione=Math.round(resistrazionex*100)/100;   //resistenza a trazione
-var fattrit=(cespo*umi*srit)/1000000; //d4
+var fattrit=(ac*umi*srit)/1000000; //d4
 var sollmediatrazionex=(fattrit*modelas*(100*spess))/1500; 
 var sollmediatrazione=Math.round(sollmediatrazionex*100)/100;//sollecitazione media a trazione
 moduloelastico.innerHTML="Modulo elastico cls: <span style='font:bold 16px; color:#ff2200;'>"+modelas+" N/mm<sup>2</sup> </span>";
