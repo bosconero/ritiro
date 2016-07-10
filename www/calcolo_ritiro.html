@@ -33,9 +33,26 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
   </div>
   <div id="pinserimento">
   <div id="inserimento">
+    <div id="attenzione"></div>  <br />
+     <div class="ins">
+       <div class="titoloins">
+       <label>Classe esposizione cls</label>
+       </div>
+       <div class="ins"> 
+       <select id="classesp">
+       <option value="XC1">XC1</option>
+       <option value="XC2"> XC2 </option>
+       <option value="XC3"> XC3 </option>
+       <option value="XC4"> XC4 </option>
+       <option value="XF3"> XF3</option>
+       <option value="XF4">XF4</option>
+       </select>
+       </div>
+       </div>
+  
        <div class="ins">
        <div class="titoloins">
-      <label for="rck"> Rck N/mm<sup>2</sup> </label>
+      <label for="rck">Resistenza CLS Rck N/mm<sup>2</sup> </label>
        </div>
        <div class="inputins"> 
         <input type=number name="rck" id="rck" autofocus>
@@ -44,7 +61,7 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-      <label for="digiucont">Dist. giunti in ml </label>
+      <label for="digiucont">Distanza dei giunti in ml </label>
        </div>
        <div class="inputins"> 
       <input type=number name="digiucont" id="digiucont" >
@@ -53,7 +70,7 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-       <label for="umidita">Umidita Rel.% </label>
+       <label for="umidita">Umidita Relativa in %</label>
        </div>
        <div class="inputins"> 
        <input type=number name="umidita" id="umidita">
@@ -64,25 +81,14 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        
        <div class="ins">
        <div class="titoloins">
-       <label for="spesspav">Spessore pav <b>cm</b> </label>
+       <label for="spesspav">Spessore del pavimento in <b>cm</b> </label>
        </div>
        <div class="inputins"> 
        <input type=number name="spesspav" id="spesspav"> 
        </div>
        </div>
        
-        <div class="ins">
-       <div class="titoloins">
-       <label>Classe cls</label>
-       </div>
-       <div class="inputins"> 
-       <select id="classesp">
-       <option value="0.6"> XC2 </option>
-       <option value="0.55"> XC3 </option>
-       <option value="0.5"> XC4 </option>
-       </select>
-       </div>
-       </div>
+     
        
        <div class="ins">
        <div class="titoloins">
@@ -95,9 +101,9 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
         </select> 
        </div>
        </div>
-       <div class="insalone">
+          <div class="insalone">
        <div class="titoloins">
-       <label>Sottofondo impermeabile o con telo di polietilene </label>
+       <label>Sottofondo impermeabile </label>
        </div>
         <table>
          <tr>
@@ -126,14 +132,12 @@ Per ulteriori informazioni leggere il testo esplicativo sulla filosofia di calco
        <button class="bottonev" id="calcola" onclick="controllo()">Calcola</button>
        <button class="bottoner" type="reset" value="Reset">Reset </button>
        </div>
-       
-
   </div>   
  
 
                                                      <br /> 
-  <div id="attenzione"></div>     
- </div>                                                 
+   
+ </div>                                                  
 <div id="risultati"> 
  <br />
 <div id="risultaritiro">
