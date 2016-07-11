@@ -10,7 +10,6 @@ var cespo=document.getElementById('classesp').value;
 var rck=document.getElementById('rck').value;
 if(cespo=='XC1' && rck < 30){
 function alertxc1();
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XC1<br /></span>";
 document.getElementById('rck').focus;
 }else if (cespo=='XC2' && rck < 30){
 attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XC2<br /></span>";
@@ -39,6 +38,7 @@ navigator.notification.alert(
             'ATTENZIONE!',            // title
             'Chiudi'                  // buttonName
         );
+return;        
 }
 function controllo1(){
 if(document.getElementById('digiucont').value==''){
