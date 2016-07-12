@@ -1,6 +1,6 @@
 function controllo() {
 if(document.getElementById('rck').value==''){
-attenzione.innerHTML="<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire la Rck</span>" ;
+alert("<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire la Rck</span>") ;
 document.getElementById('rck').focus();
 } else{
 controllo5()}
@@ -9,54 +9,53 @@ function controllo5(){
 var cespo=document.getElementById('classesp').value;
 var rck=document.getElementById('rck').value;
 if(cespo=='XC1' && rck < 30){
-alertxc1();
+alert("ATTENZIONE:"+"\n"+"\n"+ " Rck inferiore a 30, minima classe di resistenza ammessa per XC1");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 
-document.getElementById('rck').focus;
 }else if (cespo=='XC2' && rck < 30){
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XC2<br /></span>";
-document.getElementById('rck').focus;
+alert("ATTENZIONE:"+"\n"+"\n"+ " Rck inferiore a 30, minima classe di resistenza ammessa per XC2");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 }else if (cespo=='XC3' && rck < 35) {
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 35, minima classe di resistenza ammessa per XC3<br /></span>";
-document.getElementById('rck').focus;
+alert("ATTENZIONE: "+"\n"+"\n"+ "Rck inferiore a 35, minima classe di resistenza ammessa per XC3");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 }else if(cespo=='XC4' && rck < 40){
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 40, minima classe di resistenza ammessa per XC4<br /></span>";
-document.getElementById('rck').focus;
+alert("ATTENZIONE:"+"\n"+"\n"+ " Rck inferiore a 40, minima classe di resistenza ammessa per XC4");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 }else if(cespo=='XF3' && rck < 30){
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 30, minima classe di resistenza ammessa per XF3<br /></span>";
-document.getElementById('rck').focus;
+alert("ATTENZIONE:"+"\n"+"\n"+ " Rck inferiore a 30, minima classe di resistenza ammessa per XF3");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 }else if (cespo=='XF4' && rck < 35){
-attenzione.innerHTML="<span style='background-color:#fff;font:bold 16px arial;color:#ff0000'>ATTENZIONE: Rck inferiore a 35, minima classe di resistenza ammessa per XF4<br /></span>";
-document.getElementById('rck').focus;
+alert("ATTENZIONE:"+"\n"+"\n"+ " Rck inferiore a 35, minima classe di resistenza ammessa per XF4");
+document.getElementById('rck').value='';
+document.getElementById('rck').focus();
 } 
 else {controllo1()
 
 }
 }
-function alertxc1(){
-navigator.notification.alert(
-           "Rck inferiore a 30, minima classe di resistenza ammessa per XC1",  // message
-            alertDismissed,         // callback
-            'ATTENZIONE!',            // title
-            'Chiudi'                  // buttonName
-        );
-}
+
 function controllo1(){
 if(document.getElementById('digiucont').value==''){
-attenzione.innerHTML="<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire la distanza dei giunti di contrazione</span>" ;
+alert("Devi inserire la distanza dei giunti di contrazione" );
 document.getElementById('digiucont').focus();
 } else{
 controllo2()}
 }
 function controllo2(){
 if(document.getElementById('umidita').value==''){
-attenzione.innerHTML="<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire l'umidit$agrave; relativa</span>" ;
+alert("Devi inserire l'umidit$agrave; relativa") ;
 document.getElementById('umidita').focus();
 } else{
 controllo3()}
 }
 function controllo3(){
 if(document.getElementById('spesspav').value==''){
-attenzione.innerHTML="<span style='background-color:#222;font:bold 16px arial;color:#fff;line-height:22px;display:block;margin:0 auto;'>Devi inserire lo spessore del pavimento </span>" ;
+alert("Devi inserire lo spessore del pavimento") ;
 document.getElementById('spesspav').focus();
 } else{
 ritiro()}
@@ -141,7 +140,10 @@ var boxalert=document.getElementById('boxalert');
 boxalert.innerHTML="Il ritiro teorico in fase plastica del calcestruzzo giovane  con giunti tagliati ogni <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;display:block;width:100%;text-align:center;'>"+ritirolastra+" mm </span>";
 var alertd=document.getElementById('alert2');
 if (ritirolastra>1.5){
-alertd.innerHTML="<span style='font:bold 16px arial;color:#ff2200;'>RICALCOLARE IL DIMENSIONAMENTO DEI GIUNTI SINO AD OTTENERE UN RITIRO NON SUPERIORE A 1.5mm</span>";
+alert("RICALCOLARE IL DIMENSIONAMENTO DEI GIUNTI SINO AD OTTENERE UN RITIRO NON SUPERIORE A 1.5mm");
+fineintro();
+document.getElementById('digiucont').value='';
+document.getElementById('digiucont').focus();
 }
 var modelast=5700*Math.sqrt(rck);     
 var modelas=Math.round(modelast);         // modulo elastico calcestruzzo
@@ -165,6 +167,7 @@ document.getElementById('pinserimento').style.display="none";
 function fineintro(){
 document.getElementById('intro').style.display="none";
 document.getElementById('pinserimento').style.display="block";
+document.getElementById('risultati').style.display="none";
 }
 function esci(){
  navigator.app.exitApp();
