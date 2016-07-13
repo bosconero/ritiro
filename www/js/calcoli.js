@@ -140,7 +140,7 @@ var boxalert=document.getElementById('boxalert');
 boxalert.innerHTML="Il ritiro teorico in fase plastica del calcestruzzo giovane  con giunti tagliati ogni <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;display:block;width:100%;text-align:center;'>"+ritirolastra+" mm </span>";
 var alertd=document.getElementById('alert2');
 if (ritirolastra>1.5){
-alert("RICALCOLARE IL DIMENSIONAMENTO DEI GIUNTI SINO AD OTTENERE UN RITIRO NON SUPERIORE A 1.5mm");
+alert("Ritiro teorico pari a "+ritirolastra+"\n"+"\n"+"RICALCOLARE IL DIMENSIONAMENTO DEI GIUNTI SINO AD OTTENERE UN RITIRO NON SUPERIORE A 1.5mm");
 fineintro();
 document.getElementById('digiucont').value='';
 document.getElementById('digiucont').focus();
@@ -178,4 +178,25 @@ window.location="index.html";
 function gocalcolo(){
  window.location = "calcolo_ritiro.html";
 
+}
+function inviamail(){
+var pac=document.getElementById('classesp').value;
+var contr=document.getElementById('digiucont').value;
+var getto=document.getElementById('tipogetto').value;
+var cls=document.getElementById('rck').value;
+var spessore=document.getElementById('spesspav').value;
+if(document.getElementById('barriera').checked){
+var strimp="si";
+}else{
+var strimp="no";
+}
+if(document.getElementById('matprosi').checked){
+var maturapro="si";
+}else{
+var maturapro="no";
+}
+
+var mess="DATI DI CALCOLO %0d%0a -------------------------%0d%0a%0d%0a Classe esposizione cls: "+pac+"%0d%0aRck calcestruzzo        : "+cls+"%0d%0aSpessore pavimento   : "+spessore+"%0d%0aDistanza giunti contr: "+contr+"%0d%0aTipo di getto             : "+getto+"%0d%0aSottofondo impermeabile :"+strimp+"%0d%0aMaturazione protetta :"+maturapro+"%0d%0a%0d%0a%0d%0aRISULTATI%0d%0a----------------------%0d%0aIl ritiro teorico del calcestruzzo giovane in fase plastica e pari a "+ritirolastra+" mm.;%0d%0a" ;
+var oggetto="Calcolo ritiro pavimento in fase plastica cantiere di"  ;
+document.location.href = "mailto:?"+"Subject=" + oggetto + "&Body=" + mess; 
 }
