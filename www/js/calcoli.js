@@ -75,11 +75,7 @@ var strato="si";
 }else{
 var strato="no";
 }
-if(document.getElementById('matprosi').checked){
-var matur="si";
-}else{
-var matur="no";
-}
+
 
 if (tgetto=="diretto" && cespo=='XC1'){
 var srit=700;}
@@ -122,19 +118,30 @@ if(cespo=='XC2'){ var ac=0.6; }
 if(cespo=='XC3'){ var ac=0.55; }
 if(cespo=='XC4'){ var ac=0.5; }
 if(cespo=='XF3'){ var ac=0.5; }
-if(cespo=='XF4'){ var ac=0.45; }
-var ritirolastrax=((ac*umi*srit)/1000)*distcont;
+if(cespo=='XF4'){ var ac=0.5; }
+
+var spep=(100*spess)/50;
+
+if (spep==5){
+var fitt=1;
+}else if (spep>5 && spep<=10){
+var fitt=1-((spep-5)*0.03);
+}else if(spep>10 && spep<=20){
+var fitt=0.85-((spep-10)*0.02);
+}else if(spep>20 && spep<=40){
+var fitt=0.65-((spep-20)*0.01);
+}else if(spep>40 && spep<=50){
+var fitt=0.45-((spep-40)*0.005)
+}
+
+var ritirolastrax=((fitt*umi*srit)/1000)*distcont;
 var ritirolastray=Math.round(ritirolastrax*100)/100;
 if (strato=="si"){
-var ritirostrato=ritirolastray*10/100;
+var ritirostrato=ritirolastray*12/100;
 }else{
 ritirostrato=0;}
-if(matur=="no"){
-var ritiromatur=ritirolastray*10/100;
-}else{
-ritiromatur=0;
-}
-ritirolastraz=ritirolastray+ritirostrato+ritiromatur;
+
+ritirolastraz=ritirolastray+ritirostrato;
 ritirolastra=Math.round(ritirolastraz*100)/100;
 var boxalert=document.getElementById('boxalert');
 boxalert.innerHTML="Il ritiro teorico in fase plastica del calcestruzzo giovane  con giunti tagliati ogni <span style='font-weight:bold;color:#ff2200;'>"+distcont+" ml </span> sara pari a <br /> <span style='font:bold 20px arial;color:#ff2200;display:block;width:100%;text-align:center;'>"+ritirolastra+" mm </span>";
@@ -150,7 +157,7 @@ var modelas=Math.round(modelast);         // modulo elastico calcestruzzo
 var rck2=Math.pow(rck,2)   ;
 var resistrazionex=0.27*Math.pow(rck2,1/3);  
 var resistrazione=Math.round(resistrazionex*100)/100;   //resistenza a trazione
-var fattrit=(ac*umi*srit)/1000000; //d4
+var fattrit=(fitt*umi*srit)/1000000; //d4
 var sollmediatrazionex=(fattrit*modelas*(100*spess))/1500; 
 var sollmediatrazione=Math.round(sollmediatrazionex*100)/100;//sollecitazione media a trazione
 moduloelastico.innerHTML="Modulo elastico cls: <span style='font:bold 16px; color:#ff2200;'>"+modelas+" N/mm<sup>2</sup> </span>";
@@ -190,13 +197,9 @@ var strimp="si";
 }else{
 var strimp="no";
 }
-if(document.getElementById('matprosi').checked){
-var maturapro="si";
-}else{
-var maturapro="no";
-}
 
-var mess="DATI DI CALCOLO %0d%0a -------------------------%0d%0a%0d%0a Classe esposizione cls: "+pac+"%0d%0aRck calcestruzzo        : "+cls+"%0d%0aSpessore pavimento   : "+spessore+"%0d%0aDistanza giunti contr: "+contr+"%0d%0aTipo di getto             : "+getto+"%0d%0aSottofondo impermeabile :"+strimp+"%0d%0aMaturazione protetta :"+maturapro+"%0d%0a%0d%0a%0d%0aRISULTATI%0d%0a----------------------%0d%0aIl ritiro teorico del calcestruzzo giovane in fase plastica e pari a "+ritirolastra+" mm.;%0d%0a" ;
+
+var mess="DATI DI CALCOLO %0d%0a -------------------------%0d%0a%0d%0a Classe esposizione cls: "+pac+"%0d%0aRck calcestruzzo        : "+cls+" N/mmq%0d%0aSpessore pavimento   : "+spessore+" cm%0d%0aDistanza giunti contr: "+contr+" ml%0d%0aTipo di getto             : "+getto+"%0d%0aSottofondo impermeabile :"+strimp+"%0d%0a%0d%0a%0d%0aRISULTATI%0d%0a----------------------%0d%0aIl ritiro teorico del calcestruzzo giovane in fase plastica e pari a "+ritirolastra+" mm.;%0d%0a" ;
 var oggetto="Calcolo ritiro pavimento in fase plastica cantiere di"  ;
 document.location.href = "mailto:?"+"Subject=" + oggetto + "&Body=" + mess; 
 }
